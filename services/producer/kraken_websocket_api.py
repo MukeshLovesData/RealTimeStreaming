@@ -1,7 +1,7 @@
 import json
 from loguru import logger
 from websocket import create_connection
-from trade import Trade
+from services.producer.trade import Trade
 
 class KrakenWebSocketAPI:
     URL = "wss://ws.kraken.com/v2"

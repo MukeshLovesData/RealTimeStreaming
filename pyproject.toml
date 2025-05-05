@@ -5,9 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "azure-common>=1.1.28",
+    "azure-mgmt-kusto>=3.4.0",
     "kafka>=1.3.5",
     "kafka-python>=2.2.1",
     "loguru>=0.7.3",
+    "msrest>=0.7.1",
+    "msrestazure>=0.6.4.post1",
     "quixstreams>=3.13.1",
     "typing>=3.10.0.0",
     "websocket>=0.2.1",
@@ -17,4 +21,6 @@ dependencies = [
 [tool.uv.workspace]
 members = [
     "services/producer",
+    "services/consumer",
+    "services/Kusto",
 ]

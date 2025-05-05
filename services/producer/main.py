@@ -5,9 +5,9 @@ import threading
 import json
 from quixstreams import Application
 from quixstreams.kafka.configuration import ConnectionConfig
-from Config.Config import Settings
-from trade import Trade
-from kraken_websocket_api import KrakenWebSocketAPI
+from services.producer.Config.Config import Settings
+from services.producer.trade import Trade
+from services.producer.kraken_websocket_api import KrakenWebSocketAPI
 
 
 
@@ -37,7 +37,6 @@ def get_properties(connection_string: str,
 
 
 
-
 def publish_events(props:dict,topic:str,product_ids:list):
     """Publish messages to Kafka topic"""
 
@@ -58,6 +57,8 @@ def publish_events(props:dict,topic:str,product_ids:list):
             for event in events:
             #serialize an event
                 topic_name = app.topic(name=topic, value_serializer='json')
+
+                
 
                 message = topic_name.serialize(key=event.product_ids, value=event.to_dict())
                 producer.produce(topic=topic_name.name, 

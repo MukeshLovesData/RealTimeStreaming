@@ -1,0 +1,10 @@
+[project]
+name = "kusto"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "azure-kusto-data>=5.0.3",
+    "azure-kusto-ingest>=5.0.3",
+]
